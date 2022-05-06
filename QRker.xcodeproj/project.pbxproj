@@ -17,6 +17,11 @@
 		0BF390DF2822A173008D969F /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF390DE2822A173008D969F /* LocalState.swift */; };
 		0BF390E12822A19E008D969F /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF390E02822A19E008D969F /* ColorConverter.swift */; };
 		0BF390E32822A1BB008D969F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF390E22822A1BB008D969F /* Constants.swift */; };
+		0BF390E72825602A008D969F /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF390E62825602A008D969F /* Animation.swift */; };
+		0BF390EA28256F64008D969F /* ListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BF390E828256F64008D969F /* ListModel.xcdatamodeld */; };
+		0BF390EC28256FFA008D969F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF390EB28256FFA008D969F /* CoreDataManager.swift */; };
+		0BF390EE2825705F008D969F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF390ED2825705F008D969F /* Model.swift */; };
+		0BF390F028257161008D969F /* ListVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF390EF28257161008D969F /* ListVCExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		0BF390DE2822A173008D969F /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		0BF390E02822A19E008D969F /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
 		0BF390E22822A1BB008D969F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0BF390E62825602A008D969F /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		0BF390E928256F64008D969F /* ListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListModel.xcdatamodel; sourceTree = "<group>"; };
+		0BF390EB28256FFA008D969F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		0BF390ED2825705F008D969F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0BF390EF28257161008D969F /* ListVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVCExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,16 +77,53 @@
 				0BF390C428229F20008D969F /* AppDelegate.swift */,
 				0BF390C828229F20008D969F /* MainViewController.swift */,
 				0BF390D82822A120008D969F /* ListViewController.swift */,
-				0BF390DA2822A142008D969F /* OnboardingContainerViewControllerDelegate.swift */,
-				0BF390DC2822A157008D969F /* OnboardingViewController.swift */,
-				0BF390E02822A19E008D969F /* ColorConverter.swift */,
-				0BF390E22822A1BB008D969F /* Constants.swift */,
-				0BF390DE2822A173008D969F /* LocalState.swift */,
+				0BF390EF28257161008D969F /* ListVCExtensions.swift */,
+				0BF390F22825D009008D969F /* Onboarding */,
+				0BF390F12825D000008D969F /* Model */,
+				0BF390E62825602A008D969F /* Animation.swift */,
+				0BF390F42825D035008D969F /* View */,
+				0BF390F52825D069008D969F /* Services */,
+				0BF390E828256F64008D969F /* ListModel.xcdatamodeld */,
 				0BF390CD28229F22008D969F /* Assets.xcassets */,
 				0BF390CF28229F22008D969F /* LaunchScreen.storyboard */,
 				0BF390D228229F22008D969F /* Info.plist */,
 			);
 			path = QRker;
+			sourceTree = "<group>";
+		};
+		0BF390F12825D000008D969F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0BF390ED2825705F008D969F /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0BF390F22825D009008D969F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0BF390DA2822A142008D969F /* OnboardingContainerViewControllerDelegate.swift */,
+				0BF390DC2822A157008D969F /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		0BF390F42825D035008D969F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0BF390F52825D069008D969F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0BF390EB28256FFA008D969F /* CoreDataManager.swift */,
+				0BF390E02822A19E008D969F /* ColorConverter.swift */,
+				0BF390E22822A1BB008D969F /* Constants.swift */,
+				0BF390DE2822A173008D969F /* LocalState.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,13 +196,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BF390EA28256F64008D969F /* ListModel.xcdatamodeld in Sources */,
 				0BF390C928229F20008D969F /* MainViewController.swift in Sources */,
+				0BF390F028257161008D969F /* ListVCExtensions.swift in Sources */,
 				0BF390DF2822A173008D969F /* LocalState.swift in Sources */,
 				0BF390C528229F20008D969F /* AppDelegate.swift in Sources */,
 				0BF390E12822A19E008D969F /* ColorConverter.swift in Sources */,
 				0BF390DD2822A157008D969F /* OnboardingViewController.swift in Sources */,
+				0BF390EE2825705F008D969F /* Model.swift in Sources */,
+				0BF390EC28256FFA008D969F /* CoreDataManager.swift in Sources */,
 				0BF390DB2822A142008D969F /* OnboardingContainerViewControllerDelegate.swift in Sources */,
 				0BF390D92822A120008D969F /* ListViewController.swift in Sources */,
+				0BF390E72825602A008D969F /* Animation.swift in Sources */,
 				0BF390E32822A1BB008D969F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +420,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0BF390E828256F64008D969F /* ListModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0BF390E928256F64008D969F /* ListModel.xcdatamodel */,
+			);
+			currentVersion = 0BF390E928256F64008D969F /* ListModel.xcdatamodel */;
+			path = ListModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0BF390B928229F20008D969F /* Project object */;
 }

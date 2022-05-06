@@ -14,12 +14,44 @@ class MainViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     var video = AVCaptureVideoPreviewLayer()
     //MARK: - Set session
     let session = AVCaptureSession()
+    let animation = Animation()
+    
+    let gradient: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            appSecondColor.cgColor,
+            UIColor.clear.cgColor,
+            appSecondColor.cgColor
+            // UIColor.systemBackground.cgColor
+        ]
+        
+        
+        return gradientLayer
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setupVideo()
         
         startRunning()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startRunning()
+        gradient.frame = view.frame
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        session.stopRunning()
+    }
+    
+    func setup() {
+        
+        
         
     }
     
@@ -44,6 +76,7 @@ class MainViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         video = AVCaptureVideoPreviewLayer(session: session)
         video.frame = view.layer.bounds
+        video.videoGravity = .resizeAspectFill
     }
     
     func startRunning() {
@@ -58,28 +91,9 @@ class MainViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         guard metadataObjects.count > 0 else { return }
         if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
             if object.type == AVMetadataObject.ObjectType.qr {
-                let alert = UIAlertController(title: "QR Code", message: object.stringValue, preferredStyle: .alert)
+                allert(title: "QR", message: object.stringValue ?? "https://google.com")
+                self.view.layer.addSublayer(gradient)
                 
-                
-                alert.addAction(UIAlertAction(title: "Link", style: .default, handler: { (action) in
-                    guard let url = URL(string: object.stringValue ?? "https://google.com") else {return}
-                    let configuration = SFSafariViewController.Configuration()
-                    let safariViewController = SFSafariViewController(url: url, configuration: configuration)
-                    safariViewController.modalPresentationStyle = .fullScreen
-                    safariViewController.preferredControlTintColor = appMainColor
-                    safariViewController.preferredBarTintColor = appBackGroundColor
-                    self.present(safariViewController, animated: true)
-                    print(object.stringValue)
-                }))
-                
-                
-                alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { (action) in
-                    UIPasteboard.general.string = object.stringValue
-                    //  self.view.layer.sublayers?.removeLast()
-                    // self.session.stopRunning()
-                    print(object.stringValue)
-                }))
-                present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -87,4 +101,59 @@ class MainViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
 }
 
+extension MainViewController {
+    func allert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        alert.view.tintColor = appMainColor
+        
+        if message.hasPrefix("http") {
+            alert.addAction(UIAlertAction(title: "Link", style: .default, handler: { (action) in
+                guard let url = URL(string: message) else {return}
+                let configuration = SFSafariViewController.Configuration()
+                let safariViewController = SFSafariViewController(url: url, configuration: configuration)
+                safariViewController.modalPresentationStyle = .fullScreen
+                safariViewController.preferredControlTintColor = appMainColor
+                safariViewController.preferredBarTintColor = appBackGroundColor
+                self.present(safariViewController, animated: true)
+                self.view.layer.sublayers = nil
+                self.gradient.removeFromSuperlayer()
+            }))
+        }
+        
+        
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action) in
+            
+            self.addNewsToList(url: message)
+            self.gradient.removeFromSuperlayer()
+            self.gradient.removeFromSuperlayer()
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { (action) in
+            UIPasteboard.general.string = message
+            self.gradient.removeFromSuperlayer()
+            
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+}
 
+
+extension MainViewController {
+    
+    func addNewsToList(url: String) {
+        CoreDataManager.shared.downloadNewsToDataBase(model: url ) { result in
+            switch result {
+            case .success():
+                print("Downloaded to DB")
+                NotificationCenter.default.post(name: NSNotification.Name("loaded"), object: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+}

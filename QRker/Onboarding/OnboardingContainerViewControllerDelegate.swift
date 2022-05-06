@@ -47,7 +47,7 @@ class OnboardingContainerViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
-        let page1 = OnboardingViewController(heroImageName: "33", titleText: "Hey, this is simple and easy application that helps you scan qrcodes and barcodes 👋")
+        let page1 = OnboardingViewController(heroImageName: "33", titleText: "Hey, this is simple and easy application that helps you scan qrcodes 👋")
         let page2 = OnboardingViewController(heroImageName: "22", titleText: "Let's start 🚀")
   
         
