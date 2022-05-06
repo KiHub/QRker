@@ -10,6 +10,10 @@ import Foundation
 
 let converter = ColorConverter()
 
-let appBackGroundColor = converter.hexStringToUIColor(hex: "#212529")
-let appMainColor = converter.hexStringToUIColor(hex: "#95d5b2")
-let appSecondColor = converter.hexStringToUIColor(hex: "#c77dff")
+//let appBackGroundColor = converter.hexStringToUIColor(hex: "#212529")
+//let appMainColor = converter.hexStringToUIColor(hex: "#95d5b2")
+//let appSecondColor = converter.hexStringToUIColor(hex: "#c77dff")
+
+let appBackGroundColor = converter.hexStringToUIColor(hex: "#1B262C")
+let appMainColor = converter.hexStringToUIColor(hex: "#00B7C2")
+let appSecondColor = converter.hexStringToUIColor(hex: "#FDCB9E")

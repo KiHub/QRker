@@ -19,9 +19,9 @@ class MainViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     let gradient: CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
-            appSecondColor.cgColor,
+            appBackGroundColor.cgColor,
             UIColor.clear.cgColor,
-            appSecondColor.cgColor
+            appBackGroundColor.cgColor
             // UIColor.systemBackground.cgColor
         ]
         
@@ -50,7 +50,7 @@ class MainViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     }
     
     func setup() {
-        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: appMainColor]
         
         
     }

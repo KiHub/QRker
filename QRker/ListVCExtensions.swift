@@ -17,7 +17,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.textColor = appMainColor
         cell.detailTextLabel?.textColor = appSecondColor
         let savedUrls = savedNewsToDisplay[indexPath.row]
-        cell.textLabel?.text = savedUrls.url
+        cell.textLabel?.text = "◉\(savedUrls.url ?? "")"
         cell.textLabel?.numberOfLines = 0
      //   cell.detailTextLabel?.text = "◉\(String(newsViewData.points))"
         

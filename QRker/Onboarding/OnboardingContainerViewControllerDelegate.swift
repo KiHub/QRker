@@ -24,7 +24,7 @@ class OnboardingContainerViewController: UIViewController {
         let closeButton = UIButton(type: .system)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.tintColor = appSecondColor
-        closeButton.setTitle("Close", for: [])
+        closeButton.setTitle("Skip", for: [])
         closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
         return closeButton
     }()
@@ -47,8 +47,8 @@ class OnboardingContainerViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
-        let page1 = OnboardingViewController(heroImageName: "33", titleText: "Hey, this is simple and easy application that helps you scan qrcodes 👋")
-        let page2 = OnboardingViewController(heroImageName: "22", titleText: "Let's start 🚀")
+        let page1 = OnboardingViewController(heroImageName: "qrround", titleText: "Hey, this is simple and easy application that helps you scan qrcodes 👋")
+        let page2 = OnboardingViewController(heroImageName: "qrscanner", titleText: "Just scan and save QR data 🚀")
   
         
         pages.append(page1)
@@ -104,7 +104,6 @@ class OnboardingContainerViewController: UIViewController {
         
         let closeButtonConstraints = [
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: closeButton.trailingAnchor, multiplier: 4),
-            //    closeButton.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 2),
             closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 4)
         ]
         NSLayoutConstraint.activate(closeButtonConstraints)
