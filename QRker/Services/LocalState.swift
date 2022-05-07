@@ -14,6 +14,7 @@ public class LocalState {
     }
     
     //MARK: - Computed property for write and read onboarding status
+    
     public static var hasOnboarded: Bool {
         get {
             return UserDefaults.standard.bool(forKey: Keys.hasOnboarded.rawValue)

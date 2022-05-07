@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B8A452A2826861E00D895A1 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8A45292826861E00D895A1 /* Alert.swift */; };
+		0B8A452C2826878900D895A1 /* MainVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8A452B2826878900D895A1 /* MainVCExtensions.swift */; };
 		0BF390C528229F20008D969F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF390C428229F20008D969F /* AppDelegate.swift */; };
 		0BF390C928229F20008D969F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF390C828229F20008D969F /* MainViewController.swift */; };
 		0BF390CE28229F22008D969F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF390CD28229F22008D969F /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B8A45292826861E00D895A1 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		0B8A452B2826878900D895A1 /* MainVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCExtensions.swift; sourceTree = "<group>"; };
 		0BF390C128229F20008D969F /* QRker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF390C428229F20008D969F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BF390C828229F20008D969F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			children = (
 				0BF390C428229F20008D969F /* AppDelegate.swift */,
 				0BF390C828229F20008D969F /* MainViewController.swift */,
+				0B8A452B2826878900D895A1 /* MainVCExtensions.swift */,
 				0BF390D82822A120008D969F /* ListViewController.swift */,
 				0BF390EF28257161008D969F /* ListVCExtensions.swift */,
 				0BF390F22825D009008D969F /* Onboarding */,
@@ -122,6 +127,7 @@
 				0BF390E02822A19E008D969F /* ColorConverter.swift */,
 				0BF390E22822A1BB008D969F /* Constants.swift */,
 				0BF390DE2822A173008D969F /* LocalState.swift */,
+				0B8A45292826861E00D895A1 /* Alert.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -199,9 +205,11 @@
 				0BF390EA28256F64008D969F /* ListModel.xcdatamodeld in Sources */,
 				0BF390C928229F20008D969F /* MainViewController.swift in Sources */,
 				0BF390F028257161008D969F /* ListVCExtensions.swift in Sources */,
+				0B8A452C2826878900D895A1 /* MainVCExtensions.swift in Sources */,
 				0BF390DF2822A173008D969F /* LocalState.swift in Sources */,
 				0BF390C528229F20008D969F /* AppDelegate.swift in Sources */,
 				0BF390E12822A19E008D969F /* ColorConverter.swift in Sources */,
+				0B8A452A2826861E00D895A1 /* Alert.swift in Sources */,
 				0BF390DD2822A157008D969F /* OnboardingViewController.swift in Sources */,
 				0BF390EE2825705F008D969F /* Model.swift in Sources */,
 				0BF390EC28256FFA008D969F /* CoreDataManager.swift in Sources */,

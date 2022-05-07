@@ -19,7 +19,6 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         let savedUrls = savedNewsToDisplay[indexPath.row]
         cell.textLabel?.text = "◉\(savedUrls.url ?? "")"
         cell.textLabel?.numberOfLines = 0
-     //   cell.detailTextLabel?.text = "◉\(String(newsViewData.points))"
         
         return cell
     }
@@ -58,8 +57,6 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         item.image = UIImage(systemName: "trash")
         item.backgroundColor = converter.hexStringToUIColor(hex: "#95d5b2")
-        
-        
         let swipeActions = UISwipeActionsConfiguration(actions: [item])
         
         return swipeActions
